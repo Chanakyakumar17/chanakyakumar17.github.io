@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hinge Chanakya Kumar — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #00a2ff;
+      --card: rgba(0, 0, 0, 0.65);
+      --text: #ffffff;
+      --muted: rgba(240,240,240,0.85);
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--text);
+      background: 
+        linear-gradient(180deg, rgba(0,0,0,0.5), rgba(0,0,0,0.6)),
+        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2000&auto=format&fit=crop') 
+        center/cover no-repeat fixed;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 80px;
+    }
+
+    .container { max-width: 1100px; margin: 40px auto; padding: 28px; }
+
+    header {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      backdrop-filter: blur(8px);
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: var(--radius);
+      padding: 10px 18px;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .logo {
+      width: 52px; height: 52px; border-radius: 10px;
+      background: linear-gradient(135deg,var(--accent),#7b61ff);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; color: white; font-size: 18px;
+      box-shadow: 0 0 10px rgba(0,162,255,0.5);
+    }
+
+    nav ul { display: flex; gap: 16px; list-style: none; }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    nav a:hover { color: var(--text); }
+
+    .hero { display: grid; grid-template-columns: 1fr 360px; gap: 28px; margin-top: 22px; align-items: start; }
+    @media (max-width:880px){ .hero{grid-template-columns:1fr} .container{margin:18px;padding:18px;} }
+
+    .card {
+      background: var(--card);
+      padding: 22px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+    }
+
+    h1, h3 {
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+    }
+
+    h1 { margin: 0; font-size: 34px; letter-spacing: -0.6px; }
+    .subtitle { color: var(--muted); margin-top: 6px; }
+
+    .bio p { line-height: 1.6; color: var(--muted); margin-top: 8px; }
+    .bio .highlight { color: var(--text); font-weight: 600; }
+
+    .education { margin-top: 18px; display: flex; flex-direction: column; gap: 12px; }
+    .edu-item { display: flex; gap: 12px; align-items: flex-start; }
+    .edu-year { min-width: 120px; color: var(--accent); font-weight: 700; }
+    .edu-body { font-size: 14px; color: var(--muted); }
+
+    .skills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .skill {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: linear-gradient(90deg,rgba(255,255,255,0.15),rgba(255,255,255,0.1));
+      border: 1px solid rgba(255,255,255,0.2);
+      font-weight: 600;
+      font-size: 13px;
+      color: #fff;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+    }
+
+    .works { margin-top: 14px; }
+    .works li { margin-bottom: 8px; color: var(--muted); }
+
+    .profile-pic {
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid rgba(255,255,255,0.6);
+      width: 240px;
+      height: 240px;
+      margin: 0 auto;
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    }
+    .profile-pic img { width: 100%; height: 100%; object-fit: cover; }
+
+    .contact-list { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+    .contact-list a { color: var(--accent); text-decoration: none; font-weight: 600; transition: 0.3s; }
+    .contact-list a:hover { color: #fff; }
+
+    footer { margin-top: 28px; text-align: center; color: var(--muted); font-size: 13px; }
+
+    .btn {
+      display: inline-flex; gap: 8px; align-items: center;
+      padding: 10px 14px; border-radius: 10px;
+      background: linear-gradient(90deg,var(--accent),#6f5aff);
+      color: white; font-weight: 700;
+      border: none; cursor: pointer;
+      text-decoration: none;
+      transition: 0.3s;
+      box-shadow: 0 0 10px rgba(11,132,255,0.4);
+    }
+    .btn:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(11,132,255,0.7); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">HC</div>
+        <div>
+          <div style="font-weight:800">Hinge Chanakya Kumar</div>
+          <div style="font-size:12px;color:var(--muted)">Engineering Student • Filmmaker • Writer</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#works">Works</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <section class="card">
+        <h1>Hi — I’m <span style="color:var(--accent)">Hinge Chanakya Kumar</span></h1>
+        <div class="subtitle">Engineer by education, filmmaker by calling.</div>
+
+        <div id="about" class="bio">
+          <p class="highlight">Hello, this is Chanakya Kumar — an engineering student with a passionate heart for filmmaking.</p>
+          <p>
+            I find my soul in crafting stories and visuals. I have worked as a content creator and writer with Markroom and Trenovic Films,
+            contributing to short films and community projects. I love blending technical thinking with creative storytelling — from scripting 
+            and directing to editing. I also lead a small creative collective, pushing ideas from concept to screen while learning something new every project.
+          </p>
+        </div>
+
+        <div id="education" class="card" style="margin-top:14px">
+          <h3>Education</h3>
+          <div class="education">
+            <div class="edu-item"><div class="edu-year">2021–2022</div><div class="edu-body"><strong>Green Wood High School</strong>, Warangal — 70%.</div></div>
+            <div class="edu-item"><div class="edu-year">2022–2024</div><div class="edu-body"><strong>Narayana JR College</strong>, Hyderabad — 76%.</div></div>
+            <div class="edu-item"><div class="edu-year">2024–2025</div><div class="edu-body"><strong>Woxsen University</strong>, Hyderabad — 7.0 CGPA.</div></div>
+            <div class="edu-item"><div class="edu-year">2025–Present</div><div class="edu-body"><strong>SR University</strong>, Warangal — 2nd year (ongoing).</div></div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <h3>Skills</h3>
+          <div class="skills">
+            <div class="skill">Filmmaking</div>
+            <div class="skill">Script & Content Writing</div>
+            <div class="skill">AI Prompt Engineering</div>
+            <div class="skill">Video Editing</div>
+            <div class="skill">Directing (Short Films)</div>
+          </div>
+        </div>
+
+        <div class="card works" id="works" style="margin-top:14px">
+          <h3>Works & Experience</h3>
+          <ul style="margin-top:10px;padding-left:18px">
+            <li>Content writer and creator for <strong>Markroom</strong> and <strong>Trenovic Films</strong>.</li>
+            <li>Script writer for multiple short films and collaborations.</li>
+            <li>Founder of <strong>MAN CREATION MOVIE MAKERS</strong>.</li>
+          </ul>
+        </div>
+
+        <div id="resume" class="card" style="margin-top:14px;text-align:center">
+          <h3>Download My Resume</h3>
+          <p class="muted">Click below to access my resume on Google Drive</p>
+          <a href="https://drive.google.com/drive/folders/12gtT0eP7OYUXpOqlLRC1m4KYSoH6ZJIY" target="_blank" class="btn">📄 View / Download Resume</a>
+        </div>
+      </section>
+
+      <aside style="max-width:360px; text-align:center;">
+        <div class="profile-pic card">
+          <img src="1041280.jpg" alt="Hinge Chanakya Kumar Photo">
+        </div>
+        <div class="card" style="margin-top:14px;">
+          <h3>Contact</h3>
+          <div id="contact" class="contact-list">
+            <a href="tel:+919100846023">📞 +91 9100846023</a>
+            <a href="mailto:hingechanakya7@gmail.com">✉️ hingechanakya7@gmail.com</a>
+            <a href="https://www.instagram.com/chanakya_kumar8" target="_blank" rel="noopener">🔗 Instagram</a>
+            <a href="https://www.linkedin.com/in/chanakya-kumar-60902429a/" target="_blank" rel="noopener">🔗 LinkedIn</a>
+            <a href="https://youtube.com/@mancreationmoviemakers" target="_blank" rel="noopener">▶️ YouTube Channel</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div>2025 | ALL COPYRIGHTS RESERVED TO CHANAKYA KUMAR</div>
+      <div style="font-size:12px;margin-top:6px;color:var(--muted)">Designed with care • Built for clarity</div>
+    </footer>
+  </div>
+</body>
+</html>
