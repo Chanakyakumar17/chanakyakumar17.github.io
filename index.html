@@ -79,7 +79,6 @@
     }
 
     h1, h3 { text-shadow: 1px 1px 4px rgba(0,0,0,0.7); }
-
     h1 { margin: 0; font-size: 34px; letter-spacing: -0.6px; }
     .subtitle { color: var(--muted); margin-top: 6px; }
 
@@ -106,16 +105,38 @@
     .works { margin-top: 14px; }
     .works li { margin-bottom: 8px; color: var(--muted); }
 
+    /* ---- UPDATED SQUARE IMAGE WITH BLUR BACKGROUND ---- */
     .profile-pic {
-      border-radius: 50%;
-      overflow: hidden;
-      border: 3px solid rgba(255,255,255,0.6);
-      width: 240px;
-      height: 240px;
+      position: relative;
+      width: 260px;
+      height: auto;
       margin: 0 auto;
-      box-shadow: 0 0 20px rgba(255,255,255,0.2);
+      border-radius: 14px;
+      overflow: hidden;
+      border: 2px solid rgba(255,255,255,0.3);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+      background: rgba(0,0,0,0.4);
     }
-    .profile-pic img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* blurred backdrop behind the image */
+    .profile-pic::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('1041280.jpg') center/cover no-repeat;
+      filter: blur(20px) brightness(0.5);
+      z-index: 0;
+      transform: scale(1.2);
+    }
+
+    .profile-pic img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 14px;
+    }
 
     .contact-list { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
     .contact-list a { color: var(--accent); text-decoration: none; font-weight: 600; transition: 0.3s; }
@@ -136,85 +157,33 @@
     .btn:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(11,132,255,0.7); }
 
     /* --- RESPONSIVE FIXES BELOW --- */
-
     @media (max-width: 1100px) {
-      .container {
-        max-width: 95%;
-        padding: 20px;
-        margin: 20px auto;
-      }
+      .container { max-width: 95%; padding: 20px; margin: 20px auto; }
     }
 
     @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .profile-pic {
-        width: 200px;
-        height: 200px;
-      }
-
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      h1 {
-        font-size: 28px;
-      }
+      .hero { grid-template-columns: 1fr; text-align: center; }
+      .profile-pic { width: 220px; }
+      header { flex-direction: column; align-items: flex-start; }
+      nav ul { flex-wrap: wrap; justify-content: center; }
+      h1 { font-size: 28px; }
     }
 
     @media (max-width: 600px) {
-      .card {
-        padding: 16px;
-      }
-
-      h1 {
-        font-size: 24px;
-      }
-
-      .logo {
-        width: 44px;
-        height: 44px;
-        font-size: 16px;
-      }
-
-      .profile-pic {
-        width: 160px;
-        height: 160px;
-      }
-
-      .education .edu-year {
-        min-width: 90px;
-        font-size: 13px;
-      }
-
-      .edu-body {
-        font-size: 13px;
-      }
-
-      nav ul {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-      }
-
-      footer {
-        font-size: 12px;
-      }
+      .card { padding: 16px; }
+      h1 { font-size: 24px; }
+      .logo { width: 44px; height: 44px; font-size: 16px; }
+      .profile-pic { width: 180px; }
+      .education .edu-year { min-width: 90px; font-size: 13px; }
+      .edu-body { font-size: 13px; }
+      nav ul { flex-direction: column; align-items: flex-start; gap: 8px; }
+      footer { font-size: 12px; }
     }
 
     @media (max-width: 400px) {
       h1 { font-size: 20px; }
       .btn { padding: 8px 10px; font-size: 13px; }
-      .profile-pic { width: 140px; height: 140px; }
+      .profile-pic { width: 150px; }
     }
   </style>
 </head>
