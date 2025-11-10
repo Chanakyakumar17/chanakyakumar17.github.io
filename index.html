@@ -105,26 +105,28 @@
     .works { margin-top: 14px; }
     .works li { margin-bottom: 8px; color: var(--muted); }
 
-    /* ---- CLEAN SQUARE PROFILE IMAGE (FINAL) ---- */
+/* Perfect Square Profile Card */
 .profile-pic {
   width: 100%;
-  aspect-ratio: 1 / 1; /* forces perfect square */
-  border-radius: 12px;
+  aspect-ratio: 1 / 1;          /* ensures perfect square */
+  border-radius: 12px;          /* same radius as card */
   overflow: hidden;
+  background: rgba(0,0,0,0.6);  /* square background */
   border: 2px solid rgba(255,255,255,0.25);
   box-shadow: 0 4px 14px rgba(0,0,0,0.5);
-  background: rgba(0,0,0,0.4);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* The image also stays square */
 .profile-pic img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 0; /* square image */
+  border-radius: 0;
 }
+
 
 
     .contact-list { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
@@ -249,4 +251,5 @@
   </div>
 </body>
 </html>
+
 
