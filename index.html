@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -11,9 +12,12 @@
   <style>
     :root {
       --accent: #00a2ff;
-      --card: rgba(0, 0, 0, 0.65);
+      --accent-soft: rgba(0, 162, 255, 0.25);
+      --accent-strong: rgba(0, 162, 255, 0.8);
+      --card: rgba(5, 8, 20, 0.9);
+      --bg: radial-gradient(circle at top, #050816 0%, #020617 45%, #000000 100%);
       --text: #ffffff;
-      --muted: rgba(240,240,240,0.85);
+      --muted: rgba(210, 210, 220, 0.85);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -21,85 +25,269 @@
     body {
       font-family: 'Inter', sans-serif;
       color: var(--text);
-      background:
-        linear-gradient(180deg, rgba(0,0,0,0.5), rgba(0,0,0,0.6)),
-        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2000&auto=format&fit=crop')
-        center/cover no-repeat fixed;
+      background: var(--bg);
+      min-height: 100vh;
       padding-bottom: 80px;
     }
 
-    .container { max-width: 1100px; margin: 40px auto; padding: 28px; }
+    .container {
+      max-width: 1100px;
+      margin: 32px auto 40px;
+      padding: 0 20px;
+    }
 
+    /* HEADER */
     header {
-      display: flex; justify-content: space-between; align-items: center;
-      background: rgba(0,0,0,0.5);
-      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(120deg, rgba(15,23,42,0.95), rgba(15,23,42,0.7));
+      border-radius: 16px;
       padding: 12px 20px;
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: 0 18px 40px rgba(15,23,42,0.9);
+      position: sticky;
+      top: 12px;
+      z-index: 10;
     }
 
     .brand { display: flex; align-items: center; gap: 12px; }
+
     .logo {
-      width: 52px; height: 52px; border-radius: 10px;
-      background: linear-gradient(135deg, var(--accent), #7b61ff);
-      display: flex; align-items: center; justify-content: center;
-      color: white; font-weight: 700; font-size: 18px;
-      box-shadow: 0 0 10px rgba(0,162,255,0.5);
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      background:
+        radial-gradient(circle at 10% 0%, #38bdf8 0, #0ea5e9 40%, #6366f1 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+      font-size: 18px;
+      box-shadow: 0 0 18px rgba(56,189,248,0.9);
+      border: 1px solid rgba(248,250,252,0.35);
+    }
+
+    .brand-main {
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      font-size: 15px;
+      text-transform: uppercase;
+    }
+
+    .brand-sub {
+      font-size: 12px;
+      color: var(--muted);
     }
 
     nav ul { display: flex; gap: 16px; list-style: none; }
-    nav a { text-decoration: none; font-weight: 600; color: var(--muted); }
-    nav a:hover { color: white; }
+    nav a {
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--muted);
+      font-size: 13px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: 0.2s ease;
+    }
 
+    nav a:hover {
+      color: #e5f3ff;
+      border-color: var(--accent-soft);
+      background: rgba(15,23,42,0.9);
+    }
+
+    /* LAYOUT */
     .hero {
       display: grid;
-      grid-template-columns: 1fr 360px;
-      gap: 28px;
+      grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.9fr);
+      gap: 24px;
       margin-top: 22px;
+      align-items: flex-start;
     }
 
     .card {
       background: var(--card);
       padding: 22px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: 0 18px 40px rgba(15,23,42,0.90);
     }
 
-    h1 { font-size: 34px; }
-    h3 { margin-bottom: 10px; }
+    h1 {
+      font-size: 32px;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
 
-    .skills, .education { margin-top: 12px; }
+    h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #e2e8f0;
+    }
+
+    p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .highlight {
+      margin-bottom: 4px;
+      font-size: 15px;
+      color: #e5f3ff;
+    }
+
+    .tagline {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(148,163,184,0.9);
+      margin-bottom: 4px;
+    }
+
+    .accent-name {
+      color: var(--accent);
+      text-shadow: 0 0 12px rgba(56,189,248,0.6);
+    }
+
+    .section-card {
+      margin-top: 16px;
+    }
+
+    .education p {
+      margin-bottom: 4px;
+      font-size: 13px;
+    }
+
+    .education span {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    /* SKILLS */
+    .skills { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px; }
     .skill {
-      padding: 8px 12px;
-      border-radius: 100px;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      margin-right: 6px;
-      color: white;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 0 0, rgba(56,189,248,0.35), rgba(15,23,42,1));
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 12px;
+      color: #e5f3ff;
+      box-shadow: 0 8px 20px rgba(15,23,42,0.9);
+    }
+
+    /* PROFILE IMAGE FRAME */
+    .profile-shell {
+      position: relative;
+      max-width: 360px;
+      margin: 0 auto;
+    }
+
+    .profile-glow {
+      position: absolute;
+      inset: -10px;
+      background: radial-gradient(circle at 10% 0%, rgba(56,189,248,0.55), transparent 55%);
+      opacity: 0.8;
+      filter: blur(16px);
+      z-index: -1;
+    }
+
+    .profile-frame {
+      border-radius: 22px;
+      padding: 4px;
+      background: linear-gradient(135deg, rgba(56,189,248,1), rgba(99,102,241,1), rgba(56,189,248,0.4));
+      box-shadow:
+        0 18px 45px rgba(15,23,42,0.95),
+        0 0 24px rgba(56,189,248,0.6);
     }
 
     .profile-wrapper {
-      width: 100%;
-      aspect-ratio: 1/1;
-      border-radius: 12px;
+      border-radius: 18px;
       overflow: hidden;
-      background: rgba(0,0,0,0.55);
-      border: 2px solid rgba(255,255,255,0.25);
-      box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+      background: radial-gradient(circle at top, #020617, #020617 45%, #000 100%);
+      aspect-ratio: 4 / 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .profile-wrapper img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transform: scale(1.03);
     }
 
-    .contact-list { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
-    .contact-list a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .profile-caption {
+      margin-top: 8px;
+      font-size: 12px;
+      color: rgba(203, 213, 225, 0.9);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
 
-    footer { margin-top: 20px; text-align: center; color: var(--muted); }
+    /* CONTACT */
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 8px;
+      font-size: 14px;
+      text-align: left;
+    }
+
+    .contact-list a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 0;
+    }
+
+    .contact-list a:hover {
+      text-decoration: underline;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 24px;
+      text-align: center;
+      color: rgba(148, 163, 184, 0.9);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 860px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      nav ul {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .container { padding: 0 14px; }
+      header { border-radius: 14px; }
+      h1 { font-size: 26px; }
+    }
   </style>
 </head>
 
@@ -110,8 +298,8 @@
       <div class="brand">
         <div class="logo">HC</div>
         <div>
-          <div style="font-weight:800">Hinge Chanakya Kumar</div>
-          <div style="font-size:12px;color:var(--muted)">Engineering Student • Filmmaker • Writer</div>
+          <div class="brand-main">Hinge Chanakya Kumar</div>
+          <div class="brand-sub">Engineering Student • Filmmaker • Writer</div>
         </div>
       </div>
 
@@ -128,60 +316,79 @@
 
     <main class="hero">
 
+      <!-- LEFT: ABOUT + EDUCATION + SKILLS -->
       <section class="card">
-        <h1>Hi — I'm <span style="color:var(--accent)">Hinge Chanakya Kumar</span></h1>
+        <div class="tagline">PORTFOLIO • STORY • JOURNEY</div>
 
-        <div id="about">
-          <p class="highlight">Hello, this is Chanakya Kumar — an engineering student with a passionate heart for filmmaking.</p>
-          <p>I find my soul in crafting stories and visuals...</p>
-        </div>
+        <h1>
+          Hi, I’m <span class="accent-name">Hinge Chanakya Kumar</span>
+        </h1>
 
-        <div id="education" class="card" style="margin-top:14px">
+        <section id="about" style="margin-top: 6px;">
+          <p class="highlight">
+            An engineering student who finds home in stories, frames and raw emotions.
+          </p>
+          <p>
+            I blend my technical journey with a deep love for filmmaking, writing and visual storytelling.
+            From scripting and shooting solo projects to experimenting with edits, I’m constantly learning how to make
+            simple ideas feel powerful on screen.
+          </p>
+        </section>
+
+        <section id="education" class="card section-card">
           <h3>Education</h3>
           <div class="education">
-            <p>2021–2022 — Green Wood High School — 70%</p>
-            <p>2022–2024 — Narayana JR College — 76%</p>
-            <p>2024–2025 — Woxsen University — 7.0 CGPA</p>
-            <p>2025–Present — SR University — 2nd year</p>
+            <p><span>2021–2022</span> — Green Wood High School — 70%</p>
+            <p><span>2022–2024</span> — Narayana JR College — 76%</p>
+            <p><span>2024–2025</span> — Woxsen University — 7.0 CGPA</p>
+            <p><span>2025–Present</span> — SR University — 2nd year</p>
           </div>
-        </div>
+        </section>
 
-        <div class="card" style="margin-top:14px">
-          <h3>Skills</h3>
+        <section class="card section-card">
+          <h3>Core Skills</h3>
           <div class="skills">
             <span class="skill">Filmmaking</span>
-            <span class="skill">Writing</span>
-            <span class="skill">Editing</span>
+            <span class="skill">Story Writing</span>
+            <span class="skill">Video Editing</span>
+            <span class="skill">Cinematography Basics</span>
           </div>
-        </div>
+        </section>
 
       </section>
 
+      <!-- RIGHT: IMAGE + CONTACT -->
       <aside style="max-width:360px;text-align:center;">
+        <div class="profile-shell">
+          <div class="profile-glow"></div>
 
-        <!-- SQUARE PHOTO -->
-        <div class="profile-wrapper">
-          <img src="1041280.jpg" alt="Hinge Chanakya Kumar Photo">
-        </div>
+          <div class="profile-frame">
+            <div class="profile-wrapper">
+              <!-- If the image doesn’t load, open your ibb link and copy the direct image URL (usually starts with https://i.ibb.co/...) -->
+              <img src="https://ibb.co/PzwXBbZ7" alt="Hinge Chanakya Kumar Photo">
+            </div>
+          </div>
 
-        <div class="card" style="margin-top:14px;">
-          <h3>Contact</h3>
-          <div id="contact" class="contact-list">
-            <a href="tel:+919100846023"> +91 9100846023</a>
-            <a href="mailto:hingechanakya7@gmail.com">✉️ hingechanakya7@gmail.com</a>
-            <a href="https://www.instagram.com/chanakya_kumar8" target="_blank">Instagram</a>
-            <a href="https://www.linkedin.com/in/chanakya-kumar-60902429a/" target="_blank">LinkedIn</a>
+          <div class="profile-caption">
+            FILMMAKER • STUDENT • STORYTELLER
           </div>
         </div>
 
+        <div class="card section-card">
+          <h3>Contact</h3>
+          <div id="contact" class="contact-list">
+            <a href="tel:+919100846023">📞 +91 9100846023</a>
+            <a href="mailto:hingechanakya7@gmail.com">✉️ hingechanakya7@gmail.com</a>
+            <a href="https://www.instagram.com/chanakya_kumar8" target="_blank">📸 Instagram</a>
+            <a href="https://www.linkedin.com/in/chanakya-kumar-60902429a/" target="_blank">🔗 LinkedIn</a>
+          </div>
+        </div>
       </aside>
 
     </main>
 
-    <footer>2025 | ALL COPYRIGHTS RESERVED TO CHANAKYA KUMAR</footer>
+    <footer>2025 • ALL COPYRIGHTS RESERVED TO CHANAKYA KUMAR</footer>
 
   </div>
 </body>
 </html>
-
-
